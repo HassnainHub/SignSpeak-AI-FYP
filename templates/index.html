@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>SignSpeak AI — Pakistani Sign Language Translator</title>
+    <meta name="description"
+        content="Translate Pakistani Sign Language gestures to text instantly using AI. Record or upload a video and get real-time predictions.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Animated Background Orbs -->
+    <div class="bg-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <span class="brand-text">Sign<span class="accent">Speak</span></span>
+                <span class="brand-badge">AI</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#demo" class="nav-link">Try Demo</a>
+                <a href="#signs" class="nav-link">Signs</a>
+                <a href="#how" class="nav-link">How It Works</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-microchip"></i>
+                <span>AI-Powered Translation</span>
+            </div>
+            <h1 class="hero-title">
+                Break the Barrier of
+                <span class="gradient-text">Sign Language</span>
+            </h1>
+            <p class="hero-subtitle">
+                Record or upload a short video of a Pakistani Sign Language gesture.
+                Our deep learning model translates it to Urdu & English text instantly.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num">50+</span>
+                    <span class="stat-label">Signs</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">PSL</span>
+                    <span class="stat-label">Language</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">AI</span>
+                    <span class="stat-label">Powered</span>
+                </div>
+            </div>
+            <a href="#demo" class="hero-cta">
+                <i class="fa-solid fa-play"></i>
+                Try It Now
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== DEMO SECTION ===== -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>Live Translator</h2>
+                <p>Record a sign gesture using your camera or upload a video file</p>
+            </div>
+
+            <div class="demo-grid">
+
+                <!-- LEFT: Camera / Upload -->
+                <div class="glass-card camera-card">
+                    <div class="card-title">
+                        <i class="fa-solid fa-video"></i>
+                        Video Input
+                    </div>
+
+                    <!-- Mode Toggle -->
+                    <div class="mode-toggle">
+                        <button id="btn-webcam" class="mode-btn active" onclick="switchMode('webcam')">
+                            <i class="fa-solid fa-camera"></i> Webcam
+                        </button>
+                        <button id="btn-upload" class="mode-btn" onclick="switchMode('upload')">
+                            <i class="fa-solid fa-upload"></i> Upload
+                        </button>
+                    </div>
+
+                    <!-- Webcam Mode -->
+                    <div id="webcam-panel">
+                        <div class="video-wrapper">
+                            <video id="webcam-preview" autoplay playsinline muted></video>
+                            <canvas id="hidden-canvas" style="display:none;"></canvas>
+                            <div id="recording-overlay" class="recording-overlay hidden">
+                                <div class="rec-dot"></div>
+                                <span id="rec-timer">5</span>s
+                            </div>
+                            <div id="camera-placeholder" class="camera-placeholder">
+                                <i class="fa-solid fa-camera-slash"></i>
+                                <p>Camera not started</p>
+                                <small>Click "Start Camera" below</small>
+                            </div>
+                        </div>
+
+                        <div class="webcam-controls">
+                            <button id="start-camera-btn" class="ctrl-btn primary" onclick="startCamera()">
+                                <i class="fa-solid fa-camera"></i> Start Camera
+                            </button>
+                            <button id="record-btn" class="ctrl-btn record" onclick="toggleRecord()" disabled>
+                                <i class="fa-solid fa-circle" id="rec-icon"></i>
+                                <span id="rec-label">Record</span>
+                            </button>
+                        </div>
+
+                        <div class="options-row">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="mirror-opt">
+                                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                                Mirror Fix
+                            </label>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="rotate-opt">
+                                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                                Rotate 90°
+                            </label>
+                        </div>
+
+                        <!-- Recorded video preview -->
+                        <div id="recorded-preview-wrap" class="hidden">
+                            <p class="preview-label"><i class="fa-solid fa-film"></i> Recorded Clip</p>
+                            <video id="recorded-preview" controls playsinline
+                                style="width:100%;border-radius:10px;"></video>
+                        </div>
+                    </div>
+
+                    <!-- Upload Mode -->
+                    <div id="upload-panel" class="hidden">
+                        <div class="upload-zone" id="upload-zone"
+                            onclick="document.getElementById('file-input').click()" ondragover="handleDragOver(event)"
+                            ondrop="handleDrop(event)">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <p>Click or drag & drop a video file</p>
+                            <small>MP4, WebM, MOV supported</small>
+                        </div>
+                        <input type="file" id="file-input" accept="video/*" style="display:none"
+                            onchange="handleFileSelect(event)">
+                        <div id="upload-preview-wrap" class="hidden">
+                            <video id="upload-preview" controls playsinline
+                                style="width:100%;border-radius:10px;margin-top:12px;"></video>
+                        </div>
+                        <div class="options-row" style="margin-top:12px;">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="mirror-opt-upload">
+                                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                                Mirror Fix
+                            </label>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="rotate-opt-upload">
+                                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                                Rotate 90°
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-row">
+                        <button id="predict-btn" class="btn-predict" onclick="runPrediction()" disabled>
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            Translate Sign
+                        </button>
+                        <button class="btn-reset" onclick="resetAll()">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Reset
+                        </button>
+                    </div>
+
+                    <p class="tip-text">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Record 3–5 seconds · Keep hands fully visible · Good lighting
+                    </p>
+                </div>
+
+                <!-- RIGHT: Result Display -->
+                <div class="glass-card result-card">
+                    <div class="card-title">
+                        <i class="fa-solid fa-language"></i>
+                        Translation Result
+                    </div>
+
+                    <!-- Idle State -->
+                    <div id="result-idle" class="result-state">
+                        <div class="idle-icon"></div>
+                        <p class="idle-text">Perform a sign gesture and click <strong>Translate</strong></p>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div id="result-loading" class="result-state hidden">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Analyzing sign gesture…</p>
+                        <div class="loading-bar">
+                            <div class="loading-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Success State -->
+                    <div id="result-success" class="result-state hidden">
+                        <div class="result-check">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="result-urdu" id="result-urdu" dir="rtl"></div>
+                        <div class="result-english" id="result-english"></div>
+                        <div class="confidence-wrap">
+                            <div class="confidence-label">
+                                <span>Confidence</span>
+                                <span id="confidence-pct"></span>
+                            </div>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidence-fill"></div>
+                            </div>
+                        </div>
+                        <button class="btn-copy" onclick="copyResult()">
+                            <i class="fa-solid fa-copy"></i> Copy Result
+                        </button>
+                    </div>
+
+                    <!-- Error State -->
+                    <div id="result-error" class="result-state hidden">
+                        <div class="error-icon">⚠️</div>
+                        <p class="error-text" id="error-text"></p>
+                        <button class="btn-retry" onclick="resetAll()">
+                            <i class="fa-solid fa-rotate-left"></i> Try Again
+                        </button>
+                    </div>
+                </div>
+
+            </div><!-- /demo-grid -->
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how-section" id="how">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Three simple steps to translate any sign</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <div class="step-icon"><i class="fa-solid fa-video"></i></div>
+                    <h3>Record or Upload</h3>
+                    <p>Use your webcam to record a 3–5 second video of a sign language gesture, or upload an existing
+                        video file.</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <div class="step-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>AI Analysis</h3>
+                    <p>Our deep learning model extracts 16 key frames and analyzes the motion pattern to identify the
+                        sign.</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <div class="step-icon"><i class="fa-solid fa-language"></i></div>
+                    <h3>Get Translation</h3>
+                    <p>Receive instant translation in both Urdu and English along with a confidence score.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUPPORTED SIGNS ===== -->
+    <section class="signs-section" id="signs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Supported Signs</h2>
+                <p>50 Pakistani Sign Language words our model can recognize</p>
+            </div>
+            <div class="signs-grid" id="signs-grid">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span>SignSpeak <span class="accent">AI</span></span>
+            </div>
+            <p class="footer-text">Final Year Project — Pakistani Sign Language Translation using Deep Learning</p>
+            <p class="footer-copy">Built with TensorFlow · FastAPI · Vanilla JS</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
