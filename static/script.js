@@ -4,56 +4,56 @@
 // DATA
 // =========================================
 const SIGNS_DATA = [
-    { key: 'aaj',        english: 'Today',          urdu: 'آج' },
-    { key: 'aath',       english: 'Eight (8)',       urdu: 'آٹھ' },
-    { key: 'ahista',     english: 'Slow',            urdu: 'آہستہ' },
-    { key: 'anywalakal', english: 'Tomorrow',        urdu: 'آنے والا کل' },
-    { key: 'behtreen',   english: 'Perfect',         urdu: 'بہترین' },
-    { key: 'btana',      english: 'To Tell',         urdu: 'بتانا' },
-    { key: 'bukhar',     english: 'Fever',           urdu: 'بخار' },
-    { key: 'bus',        english: 'Bus',             urdu: 'بس' },
-    { key: 'car',        english: 'Car',             urdu: 'کار' },
-    { key: 'char',       english: 'Four (4)',        urdu: 'چار' },
-    { key: 'chawal',     english: 'Rice',            urdu: 'چاول' },
-    { key: 'chay',       english: 'Six (6)',         urdu: 'چھ' },
-    { key: 'chaye',      english: 'Tea',             urdu: 'چائے' },
-    { key: 'chini',      english: 'Sugar',           urdu: 'چینی' },
-    { key: 'dard',       english: 'Pain',            urdu: 'درد' },
-    { key: 'das',        english: 'Ten (10)',        urdu: 'دس' },
-    { key: 'dawai',      english: 'Medicine',        urdu: 'دوائی' },
-    { key: 'dekhna',     english: 'To See',          urdu: 'دیکھنا' },
-    { key: 'do',         english: 'Two (2)',         urdu: 'دو' },
-    { key: 'dobara',     english: 'Again',           urdu: 'دوبارہ' },
-    { key: 'doctor',     english: 'Doctor',          urdu: 'ڈاکٹر' },
-    { key: 'doodh',      english: 'Milk',            urdu: 'دودھ' },
-    { key: 'dost',       english: 'Friend',          urdu: 'دوست' },
-    { key: 'ek',         english: 'One (1)',         urdu: 'ایک' },
-    { key: 'emergency',  english: 'Emergency',       urdu: 'ایمرجنسی' },
-    { key: 'ghalat',     english: 'Wrong',           urdu: 'غلط' },
-    { key: 'ghanta',     english: 'Hour',            urdu: 'گھنٹہ' },
-    { key: 'gosht',      english: 'Meat',            urdu: 'گوشت' },
-    { key: 'hafta',      english: 'Week',            urdu: 'ہفتہ' },
-    { key: 'intezar',    english: 'Wait',            urdu: 'انتظار' },
-    { key: 'kal',        english: 'Yesterday',       urdu: 'کل' },
-    { key: 'likhna',     english: 'To Write',        urdu: 'لکھنا' },
-    { key: 'mahina',     english: 'Month',           urdu: 'مہینہ' },
-    { key: 'mask',       english: 'Mask',            urdu: 'ماسک' },
-    { key: 'minute',     english: 'Minute',          urdu: 'منٹ' },
-    { key: 'no',         english: 'Nine (9)',        urdu: 'نو' },
-    { key: 'paanch',     english: 'Five (5)',        urdu: 'پانچ' },
-    { key: 'parhna',     english: 'To Read',         urdu: 'پڑھنا' },
-    { key: 'raasta',     english: 'Way / Path',      urdu: 'راستہ' },
-    { key: 'roti',       english: 'Bread (Roti)',    urdu: 'روٹی' },
-    { key: 'saat',       english: 'Seven (7)',       urdu: 'سات' },
-    { key: 'sabzi',      english: 'Vegetable',       urdu: 'سبزی' },
-    { key: 'sahih',      english: 'Correct',         urdu: 'صحیح' },
-    { key: 'samajhna',   english: 'To Understand',  urdu: 'سمجھنا' },
-    { key: 'stop',       english: 'Stop',            urdu: 'سٹاپ' },
-    { key: 'sunna',      english: 'To Listen',       urdu: 'سننا' },
-    { key: 'tabdeel',    english: 'Change',          urdu: 'تبدیل' },
-    { key: 'teen',       english: 'Three (3)',       urdu: 'تین' },
-    { key: 'tez',        english: 'Fast',            urdu: 'تیز' },
-    { key: 'ticket',     english: 'Ticket',          urdu: 'ٹکٹ' },
+    { key: 'aaj', english: 'Today', urdu: 'آج' },
+    { key: 'aath', english: 'Eight (8)', urdu: 'آٹھ' },
+    { key: 'ahista', english: 'Slow', urdu: 'آہستہ' },
+    { key: 'anywalakal', english: 'Tomorrow', urdu: 'آنے والا کل' },
+    { key: 'behtreen', english: 'Perfect', urdu: 'بہترین' },
+    { key: 'btana', english: 'To Tell', urdu: 'بتانا' },
+    { key: 'bukhar', english: 'Fever', urdu: 'بخار' },
+    { key: 'bus', english: 'Bus', urdu: 'بس' },
+    { key: 'car', english: 'Car', urdu: 'کار' },
+    { key: 'char', english: 'Four (4)', urdu: 'چار' },
+    { key: 'chawal', english: 'Rice', urdu: 'چاول' },
+    { key: 'chay', english: 'Six (6)', urdu: 'چھ' },
+    { key: 'chaye', english: 'Tea', urdu: 'چائے' },
+    { key: 'chini', english: 'Sugar', urdu: 'چینی' },
+    { key: 'dard', english: 'Pain', urdu: 'درد' },
+    { key: 'das', english: 'Ten (10)', urdu: 'دس' },
+    { key: 'dawai', english: 'Medicine', urdu: 'دوائی' },
+    { key: 'dekhna', english: 'To See', urdu: 'دیکھنا' },
+    { key: 'do', english: 'Two (2)', urdu: 'دو' },
+    { key: 'dobara', english: 'Again', urdu: 'دوبارہ' },
+    { key: 'doctor', english: 'Doctor', urdu: 'ڈاکٹر' },
+    { key: 'doodh', english: 'Milk', urdu: 'دودھ' },
+    { key: 'dost', english: 'Friend', urdu: 'دوست' },
+    { key: 'ek', english: 'One (1)', urdu: 'ایک' },
+    { key: 'emergency', english: 'Emergency', urdu: 'ایمرجنسی' },
+    { key: 'ghalat', english: 'Wrong', urdu: 'غلط' },
+    { key: 'ghanta', english: 'Hour', urdu: 'گھنٹہ' },
+    { key: 'gosht', english: 'Meat', urdu: 'گوشت' },
+    { key: 'hafta', english: 'Week', urdu: 'ہفتہ' },
+    { key: 'intezar', english: 'Wait', urdu: 'انتظار' },
+    { key: 'kal', english: 'Yesterday', urdu: 'کل' },
+    { key: 'likhna', english: 'To Write', urdu: 'لکھنا' },
+    { key: 'mahina', english: 'Month', urdu: 'مہینہ' },
+    { key: 'mask', english: 'Mask', urdu: 'ماسک' },
+    { key: 'minute', english: 'Minute', urdu: 'منٹ' },
+    { key: 'no', english: 'Nine (9)', urdu: 'نو' },
+    { key: 'paanch', english: 'Five (5)', urdu: 'پانچ' },
+    { key: 'parhna', english: 'To Read', urdu: 'پڑھنا' },
+    { key: 'raasta', english: 'Way / Path', urdu: 'راستہ' },
+    { key: 'roti', english: 'Bread (Roti)', urdu: 'روٹی' },
+    { key: 'saat', english: 'Seven (7)', urdu: 'سات' },
+    { key: 'sabzi', english: 'Vegetable', urdu: 'سبزی' },
+    { key: 'sahih', english: 'Correct', urdu: 'صحیح' },
+    { key: 'samajhna', english: 'To Understand', urdu: 'سمجھنا' },
+    { key: 'stop', english: 'Stop', urdu: 'سٹاپ' },
+    { key: 'sunna', english: 'To Listen', urdu: 'سننا' },
+    { key: 'tabdeel', english: 'Change', urdu: 'تبدیل' },
+    { key: 'teen', english: 'Three (3)', urdu: 'تین' },
+    { key: 'tez', english: 'Fast', urdu: 'تیز' },
+    { key: 'ticket', english: 'Ticket', urdu: 'ٹکٹ' },
 ];
 
 // =========================================
@@ -68,6 +68,7 @@ let uploadedFile = null;
 let isRecording = false;
 let recordTimer = null;
 let cameraStarted = false;
+let currentFacingMode = 'user';    // 'user' or 'environment'
 
 // =========================================
 // INIT
@@ -116,7 +117,7 @@ function switchMode(mode) {
 async function startCamera() {
     try {
         stream = await navigator.mediaDevices.getUserMedia({
-            video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } },
+            video: { facingMode: currentFacingMode, width: { ideal: 640 }, height: { ideal: 480 } },
             audio: false
         });
 
@@ -128,6 +129,12 @@ async function startCamera() {
         document.getElementById('start-camera-btn').innerHTML = '<i class="fa-solid fa-check"></i> Camera On';
         document.getElementById('start-camera-btn').disabled = true;
         document.getElementById('record-btn').disabled = false;
+
+        // Show switch camera button
+        const switchBtn = document.getElementById('switch-camera-btn');
+        if (switchBtn) {
+            switchBtn.classList.remove('hidden');
+        }
 
         cameraStarted = true;
     } catch (err) {
@@ -152,6 +159,56 @@ function stopCamera() {
     startBtn.disabled = false;
 
     document.getElementById('record-btn').disabled = true;
+
+    // Hide switch camera button
+    const switchBtn = document.getElementById('switch-camera-btn');
+    if (switchBtn) {
+        switchBtn.classList.add('hidden');
+    }
+}
+
+async function switchCamera() {
+    if (!cameraStarted || !stream) return;
+
+    // Toggle facing mode
+    currentFacingMode = (currentFacingMode === 'user') ? 'environment' : 'user';
+
+    // Stop current stream
+    stream.getTracks().forEach(t => t.stop());
+
+    // Automatically turn off mirror option for rear camera
+    if (currentFacingMode === 'environment') {
+        const mirrorOpt = document.getElementById('mirror-opt');
+        if (mirrorOpt) mirrorOpt.checked = false;
+    }
+
+    try {
+        stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: currentFacingMode, width: { ideal: 640 }, height: { ideal: 480 } },
+            audio: false
+        });
+
+        const preview = document.getElementById('webcam-preview');
+        preview.srcObject = stream;
+
+        showToast('📷 Camera switched successfully!');
+    } catch (err) {
+        showToast('❌ Failed to switch camera: ' + err.message, 'error');
+        // Revert facingMode
+        currentFacingMode = (currentFacingMode === 'user') ? 'environment' : 'user';
+        // Try starting again with the old facingMode
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: currentFacingMode, width: { ideal: 640 }, height: { ideal: 480 } },
+                audio: false
+            });
+            const preview = document.getElementById('webcam-preview');
+            preview.srcObject = stream;
+        } catch (revertErr) {
+            console.error("Failed to restore camera stream:", revertErr);
+            stopCamera();
+        }
+    }
 }
 
 // =========================================
@@ -325,7 +382,15 @@ async function runPrediction() {
         if (data.success) {
             showSuccess(data);
         } else {
-            showError(data.error || 'Unknown error occurred.');
+            let errorMsg = data.error || 'Unknown error occurred.';
+            const isMirrorChecked = currentMode === 'webcam'
+                ? document.getElementById('mirror-opt').checked
+                : document.getElementById('mirror-opt-upload').checked;
+
+            if (errorMsg.includes('Low confidence') && !isMirrorChecked) {
+                errorMsg += "\n\n⚠️ The video might be mirrored, which can confuse the model. Please check the 'Mirror Fix' box and try predicting again.";
+            }
+            showError(errorMsg);
         }
     } catch (err) {
         showError('Connection error: ' + err.message);
